@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "stable-guid-deployment",
+      "kind": "constraint",
+      "anchor": {
+        "start": 16,
+        "end": 16,
+        "snippet": "$existing = @(Get-ChildItem -LiteralPath (Join-Path $NucleusDirectory 'handlers') -Filter '*.js' | Where-Object {"
+      },
+      "note": "Find an installed handler by stable GUID rather than forcing the Hub title as filename, preventing duplicate entries on this legacy installation. Preserve userprofile.json and game profiles; back up owned assets only. Refuse live Nucleus/game deployment and validate the private dependency cache before copying assets.",
+      "refs": [
+        "docs/architecture.md"
+      ]
+    }
+  ],
+  "source": {
+    "path": "scripts/windows/Install-Handler.ps1",
+    "sha256": "11cc208450530d3356d645e1eb577f9878ce889b9c8ab8e746c9a22af054f12e",
+    "format": "text",
+    "format_fingerprint": "05db8feb0843c51a026668bb69cc122617afc04000263bbb759093d8bf2f314e"
+  }
+}

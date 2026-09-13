@@ -1,0 +1,5 @@
+{
+  "ssh_target": "user@windows-pc",
+  "windows_workspace": "C:/Users/user/coop",
+  "nucleus_directory": "C:/NucleusCo-op"
+}

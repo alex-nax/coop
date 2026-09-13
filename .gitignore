@@ -1,0 +1,15 @@
+/storage/
+/local/
+/build/
+/dist/
+__pycache__/
+*.pyc
+.DS_Store
+*.dll
+*.exe
+*.bin
+*.zip
+*.7z
+*.nc
+*.log
+*.sqlite*

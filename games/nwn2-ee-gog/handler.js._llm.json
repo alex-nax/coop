@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "pending-runtime-checks",
+      "kind": "constraint",
+      "anchor": {
+        "start": 36,
+        "end": 36,
+        "snippet": "Game.Play = function () {"
+      },
+      "note": "User confirmed successful creation and joining of a local multiplayer game on 2026-09-13 with both Nucleus instances. Earlier independent-controller and left/right layout checks passed. The game files are unpatched; the local GOG API adapter and EOS LAN provide service initialization. Long campaign progression/save loading was not part of this test."
+    },
+    {
+      "id": "player-data-isolation",
+      "kind": "constraint",
+      "anchor": {
+        "start": 37,
+        "end": 37,
+        "snippet": "var playerHome = System.Environment.GetEnvironmentVariable(\"USERPROFILE\") +"
+      },
+      "note": "Stable Player1/Player2 folders keep saves separate across controller reconnects. Seed only installer default INIs, never the shared Documents directory. Runtime verified that -home populates each separate player directory and writes its own INIs."
+    },
+    {
+      "id": "controller-backend",
+      "kind": "rationale",
+      "anchor": {
+        "start": 26,
+        "end": 26,
+        "snippet": "Game.ProtoInput.UseOpenXinput = true;"
+      },
+      "note": "OpenXinput and the XInput-only SDL hints have been tested in NWN2 with both physical controllers. The user confirmed independent input on 2026-09-13. ProtoInput startup injection is required; do not enable a competing legacy input hook."
+    },
+    {
+      "id": "current-emulator",
+      "kind": "rationale",
+      "anchor": {
+        "start": 40,
+        "end": 40,
+        "snippet": "    var emulator = Context.ScriptFolder + \"\\\\steam_api64.dll\";"
+      },
+      "note": "Nucleus bundled Goldberg lacks SteamInternal_SteamAPI_Init. Keep the verified gbe_fork release-2026_08_23 Steam library together with the Galaxy API adapter and pinned Nemirtingas backend. Native original GOG Steam wrapper is not used in the final verified configuration."
+    },
+    {
+      "id": "legacy-documents-startup",
+      "kind": "rationale",
+      "anchor": {
+        "start": 30,
+        "end": 30,
+        "snippet": "Game.UseNucleusEnvironment = true;"
+      },
+      "note": "The new runtime path provider calls SHGetFolderPathA, PathAppendA and SHCreateDirectoryExA for Documents/Neverwinter Nights 2 before applying -home. This PC uses a Cyrillic OneDrive Documents folder; Nucleus player environments supply ASCII Documents paths. Nucleus temporarily backs up and redirects Personal in HKCU using its built-in environment mechanism, restoring on normal session end. No shared save/config copying is enabled."
+    },
+    {
+      "id": "eos-lan-service",
+      "kind": "rationale",
+      "anchor": {
+        "start": 5,
+        "end": 5,
+        "snippet": "Game.Description = \"GOG 521755.27. Before first Play, run Prepare-Assets.ps1 from this handler's asset folder; see README.md there. Two gamepads, left/right split; hosting and joining confirmed by human testing. Made with AI assistance (OpenAI Codex). Unofficial community handler.\";"
+      },
+      "note": "Host/join succeeded after correcting IUser and IStats ABI mismatches. Galaxy64.dll is the local adapter; NemirtingasGalaxy64.dll is the pinned Nucleus backend SHA2569a44d8414c5a58fa12737be966cd92644b1fcab05831ec608455a7947ba06449. EOSSDK-Win64-Shipping.dll is Splitux EOS LANv2.1.0. No IsLoggedOn bypass is used. All libraries are private copies in each Nucleus instance; delete a symlink before copying a DLL. Backend networking is LAN only. EOSLAN_LOCALHOST_MODE supports discovery on one PC; distinct EOSLAN_USERNAME values isolate peers. EOS library hardcodes trace logging; direct its output to Windows NUL for normal play to avoid continual log growth. Diagnostic handler in research retains per-player logs."
+    }
+  ],
+  "source": {
+    "path": "games/nwn2-ee-gog/handler.js",
+    "sha256": "4e37c085a8ea47d8ae8d6661589c1bcdaaa8c58ccd06dffb2c830912b9dde23a",
+    "format": "javascript",
+    "format_fingerprint": "397cc7395a5b30abc2d87ad72f98c45366ad1d4d1b2372e940122fd100fda425"
+  }
+}

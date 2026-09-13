@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "pinned-backend",
+      "kind": "constraint",
+      "anchor": {
+        "start": 9,
+        "end": 9,
+        "snippet": "$manifest = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'dependencies.json') -Raw | ConvertFrom-Json"
+      },
+      "note": "The original adapter forwards exports by ordinals bound to one exact Nemirtingas backend. Require all DLL hashes; never accept a newer similarly named binary. Provision third-party releases directly from upstream or private cache without redistributing them in Hub archives. Stop before changes if NWN2/Nucleus is running; VerifyOnly remains read-only.",
+      "refs": [
+        "docs/architecture.md"
+      ]
+    }
+  ],
+  "source": {
+    "path": "games/nwn2-ee-gog/Prepare-Assets.ps1",
+    "sha256": "8dae1942466756f80ef79cb6a16cb6873545dff7d39d7279d6db65a640721cca",
+    "format": "text",
+    "format_fingerprint": "05db8feb0843c51a026668bb69cc122617afc04000263bbb759093d8bf2f314e"
+  }
+}

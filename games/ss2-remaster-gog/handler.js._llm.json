@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "save-isolation",
+      "kind": "constraint",
+      "anchor": {
+        "start": 32,
+        "end": 34,
+        "snippet": "var playerPath = Context.NucleusFolder + \"\\\\players\\\\SS2RemasterGOG\\\\Player\" + (Context.PlayerID + 1);"
+      },
+      "note": "The remaster uses Windows Known Folders by default. Its native -userpath option is required for independent configs and saves. Keep the stable Player1/Player2 directory names when modifying layout or nicknames. Do not use the shared single-player Saved Games folder."
+    },
+    {
+      "id": "sdl-xinput-isolation",
+      "kind": "rationale",
+      "anchor": {
+        "start": 48,
+        "end": 53,
+        "snippet": "var hints = {"
+      },
+      "note": "The remaster ships SDL3 and can read Xbox pads through HIDAPI or other backends, bypassing XInput hooks. Process environment hints restrict SDL to XInput before startup. Proto Input maps each assigned controller to virtual slot zero. UseOpenXinput=true was required on the target Windows PC: with the default backend only Player1 responded; the user reported the updated session looked good after enabling OpenXinput. Hints affect the Nucleus process environment, not machine-wide settings."
+    },
+    {
+      "id": "custom-unverified-handler",
+      "kind": "history",
+      "anchor": {
+        "start": 1,
+        "end": 29,
+        "snippet": "Game.ExecutableName = \"SystemShock2Remastered.exe\";"
+      },
+      "note": "Created for GOG 1.3 build 89551 and Nucleus 2.4.2. Human testing confirmed two windows, top/bottom layout, independent controllers and LAN connection by 2026-09-13. No extended campaign/save-load test is claimed. Hub publication is still pending. The installer recorded success before a cleanup crash; normal game launches succeeded."
+    },
+    {
+      "id": "openxinput-required",
+      "kind": "constraint",
+      "anchor": {
+        "start": 25,
+        "end": 25,
+        "snippet": "Game.ProtoInput.UseOpenXinput = true;"
+      },
+      "note": "Keep OpenXinput enabled for these two controllers. The default Proto Input XInput backend left the second instance unresponsive even though both physical pads were connected. The user confirmed the updated session after this switch."
+    }
+  ],
+  "source": {
+    "path": "games/ss2-remaster-gog/handler.js",
+    "sha256": "b1d104fe66615fa876596f16f4ddf28d6f0871085c2a647693f0fc99887c608f",
+    "format": "javascript",
+    "format_fingerprint": "397cc7395a5b30abc2d87ad72f98c45366ad1d4d1b2372e940122fd100fda425"
+  }
+}

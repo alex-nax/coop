@@ -1,0 +1,259 @@
+{
+  "project": "coop",
+  "created": "2026-09-13",
+  "features": [
+    {
+      "id": 1,
+      "category": "infrastructure",
+      "priority": "high",
+      "description": "Dedicated Git workspace with private/generated exclusions",
+      "acceptance_criteria": [
+        "Git contains source/docs only; ignored storage links preserve old workspaces"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 2,
+      "category": "infrastructure",
+      "priority": "high",
+      "description": "Idempotent local bootstrap",
+      "acceptance_criteria": [
+        "Run init.sh twice successfully without launching games or contacting Windows"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 3,
+      "category": "docs",
+      "priority": "high",
+      "description": "Agent orientation and session continuity",
+      "acceptance_criteria": [
+        "AGENTS, progress, architecture and feature tracker link to current game docs"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 4,
+      "category": "docs",
+      "priority": "high",
+      "description": "Human-readable game index",
+      "acceptance_criteria": [
+        "Both games have build, layout, validation scope and guide links"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 5,
+      "category": "docs",
+      "priority": "high",
+      "description": "Mac toolchain and Windows SSH procedures",
+      "acceptance_criteria": [
+        "Local setup and interactive-session boundaries documented"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 6,
+      "category": "docs",
+      "priority": "high",
+      "description": "Storage and save preservation",
+      "acceptance_criteria": [
+        "Both games' authoritative player paths documented; legacy paths retained"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 7,
+      "category": "docs",
+      "priority": "high",
+      "description": "Repeatable new-game development recipe",
+      "acceptance_criteria": [
+        "Template and staged development/testing/release steps exist"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 8,
+      "category": "docs",
+      "priority": "high",
+      "description": "Controller routing insights",
+      "acceptance_criteria": [
+        "OpenXinput, SDL backends, focus and private layouts explained"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 9,
+      "category": "docs",
+      "priority": "high",
+      "description": "Multiplayer initialization insights",
+      "acceptance_criteria": [
+        "Native SS2 LAN and NWN2 middleware stages documented"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 10,
+      "category": "docs",
+      "priority": "high",
+      "description": "NWN2 Galaxy ABI diagnosis",
+      "acceptance_criteria": [
+        "IUser signature, slot maps, IStats shift and failed bypass documented"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 11,
+      "category": "docs",
+      "priority": "high",
+      "description": "Splitux comparison updated with final result",
+      "acceptance_criteria": [
+        "Comparison distinguishes launcher from EOS DLL and makes no unmeasured performance claim"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 12,
+      "category": "core",
+      "priority": "high",
+      "description": "SS2 handler preserved and disclosed",
+      "acceptance_criteria": [
+        "Runtime logic matches tested source; AI disclosure and confirmed connection status included"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 13,
+      "category": "core",
+      "priority": "high",
+      "description": "NWN2 handler preserved and disclosed",
+      "acceptance_criteria": [
+        "Runtime logic matches tested source; stable saves and pinned libraries retained"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 14,
+      "category": "testing",
+      "priority": "high",
+      "description": "Two-player configuration simulation",
+      "acceptance_criteria": [
+        "Tests exercise both handlers with distinct contexts and guard base install writes"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 15,
+      "category": "infrastructure",
+      "priority": "high",
+      "description": "Native adapter build",
+      "acceptance_criteria": [
+        "MinGW compiles adapter and diagnostic sources with warnings as errors"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 16,
+      "category": "infrastructure",
+      "priority": "high",
+      "description": "Pinned dependency preparation",
+      "acceptance_criteria": [
+        "Helper validates all four asset hashes and supports installed/cache dependencies"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 17,
+      "category": "infrastructure",
+      "priority": "high",
+      "description": "Hub package construction",
+      "acceptance_criteria": [
+        "Two .nc archives contain root handler.js and explicit assets/ entries with no proprietary payloads"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 18,
+      "category": "docs",
+      "priority": "high",
+      "description": "AI disclaimer and submission text",
+      "acceptance_criteria": [
+        "Root README, both guides, handlers and Hub descriptions disclose AI assistance"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 19,
+      "category": "infrastructure",
+      "priority": "high",
+      "description": "Windows workspace mirror",
+      "acceptance_criteria": [
+        "Public source/packages mirrored to new home folder without deploying or launching games"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 20,
+      "category": "testing",
+      "priority": "high",
+      "description": "NWN2 isolated ABI probe",
+      "acceptance_criteria": [
+        "Auth, logged-on state, ticket and achievement path pass against pinned adapter/backend"
+      ],
+      "passes": true,
+      "dependencies": []
+    },
+    {
+      "id": 21,
+      "category": "testing",
+      "priority": "medium",
+      "description": "SS2 extended campaign and save/reload",
+      "acceptance_criteria": [
+        "Two-player gameplay, save, clean restart and reload recorded by human testing"
+      ],
+      "passes": false,
+      "dependencies": []
+    },
+    {
+      "id": 22,
+      "category": "testing",
+      "priority": "medium",
+      "description": "NWN2 extended campaign and save/reload",
+      "acceptance_criteria": [
+        "Two-player gameplay, save, clean restart and reload recorded by human testing"
+      ],
+      "passes": false,
+      "dependencies": []
+    },
+    {
+      "id": 23,
+      "category": "release",
+      "priority": "medium",
+      "description": "Hub publication and independent review",
+      "acceptance_criteria": [
+        "Owner submits both archives; actual Hub URLs and review status recorded"
+      ],
+      "passes": false,
+      "dependencies": []
+    }
+  ]
+}

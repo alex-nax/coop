@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "abi-reproduction",
+      "kind": "rationale",
+      "anchor": {
+        "start": 49,
+        "end": 63,
+        "snippet": "    printf(\"SignInGalaxy implementation RVA=%llx using %s signature; listener=%p\\n\",(unsigned long long)((uintptr_t)vtable[7]-(uintptr_t)galaxy),argv[1],(void *)&listener);"
+      },
+      "note": "Isolated reproduction of the GOG 1.152.10 SignInGalaxy mismatch against Nemirtingas 0.8.5. New signature places timeout=15 in R8; emulator reads it as a listener and crashes at Galaxy+0x2d4f9 accessing 0xf. Old signature places the real listener in R8 and delivers OnAuthSuccess. Runtime probe confirms old IUser slots24/25/26 are IsLoggedOn/RequestEncryptedAppTicket/GetEncryptedAppTicket: IsLoggedOn=1 and a 107-byte emulated ticket after the asynchronous request. Ticket retrieval before requesting throws a C++ exception. Logs contain method names and ticket length only. No game is loaded or modified. Compat mode exercises the new slots25/26/27 and new SignInGalaxy signature against Galaxy64.compat.dll; the runtime probe passes. Compat mode also sets, reads and clears an isolated probe achievement through the newer IStats slots11/10/12; GetAchievement unlocked=1 and process exit0 verify the statistics correction.",
+      "refs": [
+        "docs/nwn2-galaxy-abi.md"
+      ]
+    }
+  ],
+  "source": {
+    "path": "tools/diagnostics/galaxy_probe.c",
+    "sha256": "9ce4e8138fd826d0b0d8bf7eb2ab723cd88b792e6dd048f424d4ea4e04b516d2",
+    "format": "c",
+    "format_fingerprint": "6893201a8120b54c4ae86198441a791fd50e0731d85917c6c1fe0e5fb8ad9627"
+  }
+}

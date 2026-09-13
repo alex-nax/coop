@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "public-mirror-boundary",
+      "kind": "constraint",
+      "anchor": {
+        "start": 15,
+        "end": 15,
+        "snippet": "def public_files():"
+      },
+      "note": "Only allowlisted public source and prepared .nc packages are mirrored. No runtime installation, process control, saves, raw research or private configuration is included. Remote writes are limited to the configured workspace. No delete-mirror mode is used, so removed source needs separately reviewed cleanup.",
+      "refs": [
+        "docs/architecture.md"
+      ]
+    }
+  ],
+  "source": {
+    "path": "scripts/sync_windows.py",
+    "sha256": "61aa1181132f33f6b65bcd956bb28db3dc3224b34f3b558217d0b6f47589250f",
+    "format": "python",
+    "format_fingerprint": "a67a51640399e60d6402a43d48acddd852a615617d5502a24e0e77d080b238af"
+  }
+}

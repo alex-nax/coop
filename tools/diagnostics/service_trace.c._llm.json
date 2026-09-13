@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "temporary-probes",
+      "kind": "constraint",
+      "anchor": {
+        "start": 10,
+        "end": 26,
+        "snippet": "static Probe probes[] = {"
+      },
+      "note": "Addresses are RVAs for GOG nwn2.exe MD5 aaadcd6079527807653ddebf84d1b3c2. Each probe checks its original instruction byte before installation. Probes are one-shot and restore the instruction and RIP immediately; all remaining probes are restored on detach. No game file is patched. The target must be a Nucleus NWN2 instance. DebugSetProcessKillOnExit(false) preserves the game on debugger exit. Stack candidates are code addresses, not a validated unwind. Core/EOS globals are inferred from disassembly and should be validated before interpreting them.",
+      "refs": [
+        "docs/nwn2-galaxy-abi.md"
+      ]
+    },
+    {
+      "id": "one-time-login-bypass",
+      "kind": "rationale",
+      "anchor": {
+        "start": 151,
+        "end": 154,
+        "snippet": "if(bypass_once && probes[i].rva==0x5f60ad) {"
+      },
+      "note": "--bypass-once changes only AL in the paused game thread after IsLoggedOn returns, for one Multiplayer selection. The original return value is logged first. This isolates the check from later authentication stages without patching the executable file or persistently replacing Galaxy functions. All other diagnostic probes retain normal restoration behavior."
+    }
+  ],
+  "source": {
+    "path": "tools/diagnostics/service_trace.c",
+    "sha256": "89274d4135e3f6c845c431969d7f1364cc328ba336231c893328048d09af787f",
+    "format": "c",
+    "format_fingerprint": "6893201a8120b54c4ae86198441a791fd50e0731d85917c6c1fe0e5fb8ad9627"
+  }
+}

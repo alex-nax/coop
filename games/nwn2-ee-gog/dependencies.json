@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "assets": [
+    {
+      "file": "steam_api64.dll",
+      "component": "gbe_fork",
+      "version": "release-2026_08_23",
+      "source": "https://github.com/Detanup01/gbe_fork/releases/tag/release-2026_08_23",
+      "download": "https://github.com/Detanup01/gbe_fork/releases/download/release-2026_08_23/emu-win-release.7z",
+      "archive_sha256": "812dd5f6edd3f175219cc9836e55c1ef4154854a00fb0a6ff197254b85579baf",
+      "license": "LGPL-3.0; see upstream LICENSE",
+      "provision": "download",
+      "sha256": "1bc8731a3a9e9d1a68ee14a815c2525be713141c8e6abb7d40d9ac1dabc79fc9"
+    },
+    {
+      "file": "EOSSDK-Win64-Shipping.dll",
+      "component": "Splitux EOS LAN",
+      "version": "v2.1.0",
+      "source": "https://github.com/splitux-gg/eos_sdk_emu-splitux/releases/tag/v2.1.0",
+      "download": "https://github.com/splitux-gg/eos_sdk_emu-splitux/releases/download/v2.1.0/eos-lan-win64.zip",
+      "license": "No top-level license file found in the inspected v2.1.0 source tree; not redistributed here",
+      "provision": "download",
+      "sha256": "84693031c8c792792054c5d0e4a6e77f57187def867e51627676a77c5a0de45e"
+    },
+    {
+      "file": "NemirtingasGalaxy64.dll",
+      "component": "Nemirtingas Galaxy Emu",
+      "version": "0.8.5-6cf6631a02f624c6b5e8f5ad9bee914bf9004443",
+      "source": "Nucleus Co-op 2.4.2 utils/NemirtingasGalaxyEmu/x64/Galaxy64.dll",
+      "license": "Retains upstream terms; copied from the user's Nucleus installation, not redistributed here",
+      "provision": "nucleus",
+      "sha256": "9a44d8414c5a58fa12737be966cd92644b1fcab05831ec608455a7947ba06449"
+    },
+    {
+      "file": "Galaxy64.dll",
+      "component": "Original NWN2 Galaxy ABI adapter",
+      "version": "0.1.0",
+      "source": "src/galaxy_compat.c and src/galaxy_compat.def",
+      "license": "MIT, this repository",
+      "provision": "bundled-original",
+      "sha256": "a3ecfcbc3202e22c6df96bdf7bbe2eac89792f05c74dfceff0a979d8b9db406c"
+    }
+  ]
+}

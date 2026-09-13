@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "nwn2-user-abi",
+      "kind": "constraint",
+      "anchor": {
+        "start": 41,
+        "end": 70,
+        "snippet": "#define FORWARD(name,offset) __attribute__((naked)) static void name(void) { __asm__(\"mov 8(%rcx), %rcx\\nmov (%rcx), %rax\\njmp *\" #offset \"(%rax)\"); }"
+      },
+      "note": "Diagnostic adapter for NWN2 GOG SDK 1.152.10 and the exact Nucleus Nemirtingas 0.8.5 binary. A separate IUser proxy preserves the backend object and its vtable. x64 tail-call thunks replace RCX with the real object and preserve all other registers/stack arguments, including MSVC hidden return buffers. New SignInAuthorizationCode adds slot15; old IsLoggedOn/RequestEncryptedAppTicket/GetEncryptedAppTicket slots24/25/26 map to new25/26/27. New SignInGalaxy adds a timeout before the listener; the C thunk drops that timeout. Unsupported methods raise a visible diagnostic exception rather than pretending success. This is a bounded NWN2 adapter, not a full implementation of every new GOG interface. Client/server IUser objects are separate. Backend exports are forwarded by ordinals pinned to the bundled binary in galaxy_compat.def. Isolated compat-mode probe verified auth callback, logged-on state and 107-byte ticket. Full-game initialization succeeded and the user confirmed hosting/joining on2026-09-13 after the IStats mapping was added. Pointer-only sign-in and access-violation diagnostics record addresses, never ticket or credential contents. The vectored handler returns CONTINUE_SEARCH and does not swallow game exceptions.",
+      "refs": [
+        "docs/nwn2-galaxy-abi.md",
+        "https://docs.gog.com/galaxyapi/IUser_8h_source.html"
+      ]
+    },
+    {
+      "id": "stats-abi-layout",
+      "kind": "constraint",
+      "anchor": {
+        "start": 73,
+        "end": 85,
+        "snippet": "void *compat_stats(void) {"
+      },
+      "note": "The original 1.152.10 binary IStats vtable at RVA0xa408f8 contains three extra methods at slots7/8/9: GetAchievementsNumber/GetAchievementName/GetAchievementNameCopy. They are absent from the older online documentation and bundled emulator table at RVA0x4b9868. New GetAchievement slot10 incorrectly reached old StoreStatsAndAchievements slot10 and queued the ACH_NEVER... name as a callback, later crashing at backend+0x2d4ff with RDX=0x4556454e5f484341. Map new slots10..37 to old7..34; preserve0..6. The three unimplemented enumeration methods raise the diagnostic unsupported exception. Methods were verified from original and emulator binary function-name strings, not inferred solely from the outdated web header.",
+      "refs": [
+        "docs/nwn2-galaxy-abi.md"
+      ]
+    }
+  ],
+  "source": {
+    "path": "games/nwn2-ee-gog/src/galaxy_compat.c",
+    "sha256": "236e2b8e4032e8c1eb4da9888b656bb8ca479b86111fa3a15525ef01d95234cc",
+    "format": "c",
+    "format_fingerprint": "6893201a8120b54c4ae86198441a791fd50e0731d85917c6c1fe0e5fb8ad9627"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "hub-asset-layout",
+      "kind": "constraint",
+      "anchor": {
+        "start": 15,
+        "end": 15,
+        "snippet": "def make_package(game):"
+      },
+      "note": "Nucleus imports root handler.js and moves contents of explicitly listed top-level directory entries into the per-handler asset folder. ZIPs without assets/ directory entries can lose their assets. Build from an allowlist; never archive private storage recursively. A preserved adapter must match the tested hash; a fresh build is explicitly labelled as needing Windows validation.",
+      "refs": [
+        "docs/architecture.md"
+      ]
+    }
+  ],
+  "source": {
+    "path": "scripts/package.py",
+    "sha256": "24e267e66bc4da26883a1ad4e5f19b06cfa3021dacaa241098d34b6f7ee6e4e9",
+    "format": "python",
+    "format_fingerprint": "a67a51640399e60d6402a43d48acddd852a615617d5502a24e0e77d080b238af"
+  }
+}
