@@ -15,3 +15,9 @@ Run `./galaxy_probe.exe compat` with that directory as the working directory. Ex
 `service_trace.c` is a version-specific Windows debugger. It attaches to one PID and uses one-shot breakpoints at known RVAs for the tested GOG executable. Read the source and [diagnosis](../../docs/nwn2-galaxy-abi.md) before use. Verify the executable build/hash and selected PID first. The historical `--bypass-once` option changes a login result in memory for diagnosis; it is not a normal launch fix. Only attach during an agreed diagnostic test, never during ongoing play or to unrelated processes. After exit independently verify debugger detachment and original breakpoint bytes.
 
 The initial isolated probe was repeated during repository consolidation without opening a game window. The source build and preserved tested adapter are distinct artifacts; use their recorded hashes when comparing results.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

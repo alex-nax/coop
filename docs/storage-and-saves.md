@@ -21,3 +21,9 @@ Before changes, close the affected game normally and copy its two player folders
 Controller layout JSON contains device identifiers and monitor geometry. Keep it private. Public instructions should explain assigning pads and selecting halves of a screen; handler dimensions come from `Context.Width` and `Context.Height`.
 
 The mirror script updates public files without deleting unrelated files. Deleted source may remain in an existing Windows mirror until reviewed cleanup; it never performs destructive `/MIR` synchronization. Runtime installation is an explicit later operation.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

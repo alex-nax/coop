@@ -21,12 +21,19 @@ On the initial development machine the builder uses the preserved tested adapter
 
 1. Sign into [the Hub](https://hub.splitscreen.me/) and verify the account email if requested. Use **My handlers > Create new handler** and search for the exact enhanced/remastered game, not the original edition.
 2. Create one GOG-specific entry per game, set two-player controller support, and paste the corresponding `games/<slug>/hub-description.md` text. Do not label it Hub-verified yourself.
-3. In the handler's management/release page, choose **Release a new version**, select its `.nc`, and paste the short release note from that same description. Review the visible metadata and submit with the owner's authorization.
+3. In **Edit & Manage**, choose **Release a new version**, select its `.nc`, and paste the short release note from that same description. Review the visible metadata and submit with the owner's authorization.
 4. Check that the archive installs into a clean Nucleus library. NWN2 users must run its dependency helper before Play. Keep that instruction in both the Hub page and the handler's in-app description.
-5. Record actual Hub URLs and review status in `release.json`, the README index and feature tracker. Address moderator feedback before treating the packages as accepted public releases.
+5. After a first release exists, select **I want to publicly share my handler** and save. The inspected Hub form requires an administrator to authorize public availability; it can show **Pending validation** before that occurs. Do not claim publication before checking the resulting state.
+6. Record actual Hub URLs and review status in `release.json`, the README index and feature tracker. Address moderator feedback before treating the packages as accepted public releases.
 
-This task prepares packages; it does not sign into the Hub or publish them. A GitHub source push is separate from a Hub upload. The repository owner supplied the GitHub remote explicitly; Hub publication still remains an owner action.
+The owner has now authorized SS2 publication at [the created Hub entry](https://hub.splitscreen.me/handler/FFBhS68GK5T7u2CEP). Prepare and submit SS2 first; wait for the owner's review before proceeding with NWN2 EE. Every Hub description, release note and package must retain the GitHub source link and AI disclosure. The browser backend was unavailable during preparation, so no authenticated Hub change has been made.
 
 ## Disclosure and release scope
 
 Both packages disclose AI-assisted development using OpenAI Codex and distinguish human testing from official review. SS2 connection testing and NWN2 host/join testing are user-confirmed. Neither claims comprehensive campaign/save-load validation or compatibility with untested builds. [Third-party notices](../THIRD_PARTY.md) explain dependency provisioning and authorship.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

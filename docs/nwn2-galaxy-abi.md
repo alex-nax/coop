@@ -59,3 +59,9 @@ With both interface fixes, the full game returned AL=1 naturally, AML setup and 
 - A leaf callback may have no `.pdata` entry. Do not assign the previous runtime-function entry when the address is beyond its EndAddress.
 - A debugger's detach return value alone was insufficient: independent post-exit checks confirmed no debugger and original breakpoint bytes. Set `DebugSetProcessKillOnExit(false)` and verify cleanup.
 - Earlier research files describe intermediate failures as ongoing. The final validation record supersedes those chronological snapshots; they are retained privately for evidence.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

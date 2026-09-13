@@ -254,6 +254,21 @@
       ],
       "passes": false,
       "dependencies": []
+    },
+    {
+      "id": 24,
+      "category": "release",
+      "priority": "high",
+      "description": "GitHub source links and AI disclosure accompany both prepared releases",
+      "acceptance_criteria": [
+        "Both handler descriptions and Hub texts link to this repository and disclose AI assistance",
+        "Every packaged Markdown document has a GitHub source link and AI disclosure; package manifests identify the repository"
+      ],
+      "passes": true,
+      "dependencies": [
+        17,
+        18
+      ]
     }
   ]
 }

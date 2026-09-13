@@ -27,3 +27,9 @@ Steam IDs come from the Nucleus player context. Galaxy IDs are written as litera
 The same NWN2 dialog appeared both at a false IsLoggedOn result and at a later authentication timeout. Replacing the EOS library alone or forcing the login boolean did not establish a working platform identity. The [ABI diagnosis](nwn2-galaxy-abi.md) explains the durable fix.
 
 Use bounded diagnostic logging and turn it off for normal play. EOS LAN's tested binary can produce substantial continuous logs; the release handler sets `EOSLAN_LOG_PATH=NUL`. If a new failure needs tracing, set a private per-player log path for a controlled run, restore the release setting afterwards, and avoid logging credential or ticket contents. Do not change firewall rules until port/process evidence supports that diagnosis.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

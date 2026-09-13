@@ -6,6 +6,7 @@ from pathlib import Path
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+SOURCE_REPOSITORY = 'https://github.com/alex-nax/coop'
 
 
 def digest(data):
@@ -33,6 +34,7 @@ def make_package(game):
         payload['assets/' + name] = (ROOT / name).read_bytes()
     payload['assets/README.md'] = (
         '# Handler installation\n\nMade with AI assistance using OpenAI Codex, with human testing.\n\n'
+        f'[Source code and updates on GitHub]({SOURCE_REPOSITORY})\n\n'
         f'Read [the game guide](games/{game["slug"]}/README.md) for installation, play and limitations.\n\n'
         + ('Before the first Play, close Nucleus and run Prepare-Assets.ps1 in this folder. '
            'It retrieves the pinned upstream dependencies and verifies their hashes.\n' if game['native_adapter'] else '')
@@ -58,7 +60,7 @@ def make_package(game):
         for src in sorted((folder / 'src').iterdir()):
             if src.suffix in ('.c', '.def'):
                 payload[f'assets/games/{game["slug"]}/src/{src.name}'] = src.read_bytes()
-    manifest = {'game': game, 'ai_assisted': True, 'files': {n: digest(v) for n, v in sorted(payload.items())}}
+    manifest = {'game': game, 'ai_assisted': True, 'source_repository': SOURCE_REPOSITORY, 'files': {n: digest(v) for n, v in sorted(payload.items())}}
     payload['assets/package-manifest.json'] = (json.dumps(manifest, indent=2) + '\n').encode()
     target = ROOT / 'dist' / f'{game["slug"]}-{game["version"]}.nc'
     directories = set()

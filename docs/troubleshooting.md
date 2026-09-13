@@ -18,3 +18,9 @@
 The original SS2 installer logged success and then crashed in cleanup; subsequent game launches and user connection testing succeeded. Inspect the install log and actual executable before assuming the installation failed. Conversely, an installer process exiting does not alone prove that every download part or game file is valid.
 
 Old scripts in `storage/legacy/` include force-stop and experimental rollback actions. They are evidence, not the current operational interface. A script named “restore baseline” can restore a pre-fix library combination; use the dependency manifest and current handler as the release baseline.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

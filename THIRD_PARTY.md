@@ -14,3 +14,5 @@ This repository's MIT license applies to its original handlers, compatibility ad
 NWN2 packages contain only this project's original adapter DLL/source, setup helper, manifests and docs. Pinned third-party DLLs remain in ignored private storage on the development machines. If future releases redistribute a third-party binary, establish the applicable license/source/notice requirements first and update this file and the package allowlist.
 
 The original adapter is a bounded interoperability layer for the tested Galaxy interface; it does not embed the original GOG SDK binary or the Nemirtingas backend. Hashes, version strings and diagnostic offsets document compatibility, not ownership of those upstream works.
+
+Project source: [alex-nax/coop](https://github.com/alex-nax/coop). Made with AI assistance using OpenAI Codex; third-party authorship remains with upstream contributors.

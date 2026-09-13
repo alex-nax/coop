@@ -29,3 +29,9 @@ SS2 uses its native `-userpath` plus Proto Input and SDL hints; it needs no exte
 ## Naming and change rules
 
 Use lowercase kebab-case catalog slugs and stable Nucleus GUIDs. Keep human documentation near each game, with reusable lessons under `docs/`. Use source sidecars for implementation rationale; keep their paths and anchors current. Avoid shared global controller fixes until the individual handler has been tested. Never turn a machine-specific saved layout into a universal profile.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

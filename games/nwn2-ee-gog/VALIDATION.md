@@ -19,3 +19,9 @@ The four exact runtime library hashes are in [dependencies.json](dependencies.js
 Raw traces and screenshots remain private in the legacy research archive. The public [ABI diagnosis](../../docs/nwn2-galaxy-abi.md) records the key evidence and bounded conclusions without redistributing game binaries or authentication material.
 
 Repository preparation verification: the packaged dependency helper passed two successive runs using the preserved private cache, then verified all four hashes. A freshly compiled isolated probe passed against the packaged tested adapter/backend without launching a game. The upstream download branch was inspected but was not exercised in this repeat test; upstream release filenames and final DLL hashes are pinned.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

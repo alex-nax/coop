@@ -29,3 +29,9 @@ Inspect only relevant windows/processes, use application-window capture rather t
 NWN2's Nucleus player environment temporarily redirects the user's Documents registry value. Capture its original value before experiments; after normal exit verify it was restored. Do not permanently replace the user's OneDrive Documents folder to make a game launch. SS2 uses a native player-data argument and does not need this mechanism.
 
 If a debugger reports failed explicit detach, independently check `CheckRemoteDebuggerPresent` and restored breakpoint bytes after its process exits. Avoid broad `Stop-Process` commands. Never shut down an active co-op session merely to validate repository packaging.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

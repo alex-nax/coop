@@ -44,7 +44,7 @@
   ],
   "source": {
     "path": "games/ss2-remaster-gog/handler.js",
-    "sha256": "b1d104fe66615fa876596f16f4ddf28d6f0871085c2a647693f0fc99887c608f",
+    "sha256": "f6a4908acac871564f0023e2f4271a64b9aa3b1c789b4dca6494234ae46550eb",
     "format": "javascript",
     "format_fingerprint": "397cc7395a5b30abc2d87ad72f98c45366ad1d4d1b2372e940122fd100fda425"
   }

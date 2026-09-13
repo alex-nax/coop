@@ -12,3 +12,9 @@
 10. **Prepare a release.** Update AI disclosure and Hub description, dependency sources, game index and progress. Build and inspect the allowlisted archive. Actual Hub publication and public verification are separate from local success.
 
 If a new game needs additional assets, extend the package builder's explicit mapping and add validation before introducing them. Never solve packaging by including the entire research directory. Compare any architectural change against both existing handlers before deploying shared Nucleus settings.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

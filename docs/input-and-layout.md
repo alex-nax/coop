@@ -16,3 +16,9 @@ The existing Nucleus setup uses API/XInput indices. `Settings.ini` has `UseXinpu
 Nucleus's saved profile controls the split. The handler reads the assigned rectangle; it does not force these pixel dimensions. A public package should not contain this PC's saved device IDs or layout JSON. Connect pads before launching, then drag one to each half in Nucleus. Reconnection can change the physical pad order, so reassign if necessary.
 
 A complete routing test moves pad 1 only, then pad 2 only, in menus and gameplay, including when the other window has desktop focus. Both windows accepting any input is insufficient evidence of isolation. Keep both pads awake during all launch and connection tests.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

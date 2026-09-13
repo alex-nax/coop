@@ -17,3 +17,9 @@ Copy `templates/machines.example.json` to `local/machines.json` for a new target
 Use `python3 scripts/sync_windows.py --dry-run` to inspect a mirror operation and run without `--dry-run` when ready. It transfers only public source and prepared Hub packages to the configured workspace. It does not install handlers, start Nucleus, stop a game, copy saves or change Windows settings.
 
 Raw reverse-engineering artifacts and proprietary files remain in the original workspaces, linked beneath `storage/legacy/`. Use their documented observations, not old experimental handlers, as the starting point for changes.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

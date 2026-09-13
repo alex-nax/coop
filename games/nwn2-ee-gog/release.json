@@ -2,6 +2,8 @@
   "version": "0.1.0",
   "nucleus_tested": "2.4.2",
   "date": "2026-09-13",
-  "status": "prepared; not uploaded or Hub-verified",
-  "ai_assisted": true
+  "status": "prepared; publication waits for owner review of SS2",
+  "ai_assisted": true,
+  "source_repository": "https://github.com/alex-nax/coop",
+  "source_directory": "https://github.com/alex-nax/coop/tree/main/games/nwn2-ee-gog"
 }

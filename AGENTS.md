@@ -20,7 +20,7 @@
 - Scripts must be parameterized, fail clearly and leave Windows settings intact. PowerShell is Windows PowerShell 5.1 compatible; use UTF-8 without BOM for Nucleus settings.
 - For GUI work use the Windows interactive session, not the SSH service desktop. Capture only the relevant application window and obtain human observation when remote visibility is insufficient.
 - Maintain `._llm.json` beside moved/edited source; review notes, repair anchors, then stamp with the llm-sidecar tool if available. Put cross-file explanations in docs.
-- Keep AI-assisted development disclosure in README, each game guide, handler description and Hub release notes. Never imply official Hub verification or tests that did not occur.
+- Keep both the GitHub source link (https://github.com/alex-nax/coop) and AI-assisted development disclosure in README, each game guide, handler description, package documentation and Hub release notes. Never imply official Hub verification or tests that did not occur.
 - Do not delegate to other agents unless requested. Avoid generic environment/security changes, broad process termination, automatic public uploads and account sign-ins.
 
 ## Commands and evidence

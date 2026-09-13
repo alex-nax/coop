@@ -7,3 +7,9 @@ Document the exact store/build, native executable, supported controllers, prefer
 Include: **Made with AI assistance using OpenAI Codex, with human testing where recorded. Unofficial community handler; no claim of official Hub verification.** Revise the tool attribution if a later contribution uses different assistance.
 
 A new template has no passed gameplay checks. Do not copy another game's validation results or machine-specific layout JSON.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

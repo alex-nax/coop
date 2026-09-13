@@ -1,5 +1,7 @@
 # Neverwinter Nights 2 Enhanced Edition — GOG
 
+[Source code, updates and full documentation on GitHub](https://github.com/alex-nax/coop/tree/main/games/nwn2-ee-gog)
+
 Two gamepads, left/right split, local host/join on one Windows PC. Tested on GOG 521755.27 (build 92708), Nucleus Co-op 2.4.2 and a 3840×2160 display. Human testing confirmed independent controllers, host discovery and joining. See [validation](VALIDATION.md).
 
 **Made with AI assistance using OpenAI Codex, with human testing.** This is an unofficial community handler and original compatibility adapter. It is not an official or Hub-verified release. Third-party libraries retain their own authorship and licenses. Use your own GOG installation.

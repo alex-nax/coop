@@ -2,6 +2,9 @@
   "version": "0.1.0",
   "nucleus_tested": "2.4.2",
   "date": "2026-09-13",
-  "status": "prepared; not uploaded or Hub-verified",
-  "ai_assisted": true
+  "status": "Hub entry created; release upload and public authorization pending",
+  "ai_assisted": true,
+  "source_repository": "https://github.com/alex-nax/coop",
+  "source_directory": "https://github.com/alex-nax/coop/tree/main/games/ss2-remaster-gog",
+  "hub_url": "https://hub.splitscreen.me/handler/FFBhS68GK5T7u2CEP"
 }

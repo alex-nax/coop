@@ -16,3 +16,9 @@ Splitux's process/device isolation and command-line interface are attractive for
 The initial EOS LAN trial exported the 68 functions imported by NWN2, including one absent from the older bundled EOS emulator. Export coverage alone did not solve the GOG identity prerequisite. The later Galaxy ABI correction completed the working path, and human host/join testing passed. Earlier private comparison notes saying no connection had succeeded are superseded by that result.
 
 Sources checked during the 2026-09-13 investigation: [Splitux source and README](https://github.com/splitux-gg/splitux), [handler registry](https://github.com/splitux-gg/splitux-handlers/blob/main/index.json), [EOS LAN v2.1.0](https://github.com/splitux-gg/eos_sdk_emu-splitux/releases/tag/v2.1.0), [Nucleus FAQ](https://www.splitscreen.me/docs/faq/). Recheck upstream before planning a platform migration.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.

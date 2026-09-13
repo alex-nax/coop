@@ -1,5 +1,7 @@
 # System Shock 2: 25th Anniversary Remaster — GOG
 
+[Source code, updates and full documentation on GitHub](https://github.com/alex-nax/coop/tree/main/games/ss2-remaster-gog)
+
 Two gamepads, top/bottom split, native LAN. Tested on GOG 1.3 (build 89551), Nucleus Co-op 2.4.2 and a 3840×2160 screen. The user confirmed independent controllers and the connection test. See [validation](VALIDATION.md) for limits.
 
 **Made with AI assistance using OpenAI Codex, with human testing.** This is an unofficial community handler, not an official or Hub-verified release. It requires your own game installation.

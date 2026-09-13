@@ -26,3 +26,9 @@ The initial validation records distinguish completed human observations from ope
 Store raw PIDs, device IDs, screenshots, traces and command lines privately. Public validation should include the tested versions, relevant hashes, method and result, without machine identifiers or proprietary binary contents.
 
 The reusable Windows packaging check is `scripts/windows/Test-Preparation.ps1 -CacheDirectory <pinned-DLL-folder> -ProbeExecutable <galaxy_probe.exe>`. It syntax-checks PowerShell, extracts the NWN2 package into private storage, runs setup twice, verifies hashes and optionally runs the isolated probe. The initial consolidation used the cache branch; it did not re-download the upstream releases.
+
+---
+
+Source and updates: [alex-nax/coop](https://github.com/alex-nax/coop).
+
+Made with AI assistance using OpenAI Codex. Human testing is documented per game. Unofficial community project; no claim of official Hub verification.
