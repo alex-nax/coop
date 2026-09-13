@@ -12,7 +12,7 @@
 | Isolated adapter probe | Auth callback, logged-on state, 107-byte emulated ticket and achievement set/get/clear succeeded |
 | Player storage | Separate stable native -home paths for Player1 and Player2 |
 | Long campaign / save-reload | Not separately verified |
-| Hub review | Not submitted or officially verified |
+| Hub review | Listing saved; version 0, upload deferred pending automatic setup |
 
 The four exact runtime library hashes are in [dependencies.json](dependencies.json). The last installed successful handler before its release-description update had SHA-256 `1e2407ca58e6a0240237e0eb28f34e74c95feba1f1f3fd146d22fd23c70e768d`. The package manifest records the updated source hash. Runtime logic and save paths are preserved.
 

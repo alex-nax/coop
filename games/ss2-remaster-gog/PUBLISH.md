@@ -14,7 +14,7 @@ Source: [alex-nax/coop — SS2](https://github.com/alex-nax/coop/tree/main/games
 | Mouse/keyboard support | None |
 | Description | Paste the descriptive paragraphs from [hub-description.md](hub-description.md), including GitHub links and AI disclosure |
 
-The listing metadata above has been saved and verified on the rendered Hub page. The first-release upload remains pending; Chrome requires Allow access to file URLs for the ChatGPT browser extension before its file chooser can accept the prepared archive.
+The owner uploaded Hub version 1 and reviewed the description. Chrome verified the download link, version history, public-sharing checkbox and **pending validation** status on 2026-09-13. Preserve the owner's final description.
 
 ## First release
 
@@ -26,4 +26,4 @@ v0.1.0: GOG 1.3, two gamepads, top/bottom split, separate saves and confirmed LA
 
 After the upload succeeds, enable **I want to publicly share my handler** and save. This control is disabled while no release exists. Public availability also requires Hub administrator authorization, so **Pending validation** is a possible result. Do not call the handler officially verified before that review occurs.
 
-Review the resulting SS2 page and release first. NWN2 EE publication waits for the owner's review, as requested.
+The owner approved proceeding with NWN2 EE, then deferred its upload while automatic setup is developed. See [the current handoff](../../HANDOFF.md).

@@ -1,0 +1,145 @@
+diff --git a/games/nwn2-ee-gog/Prepare-Assets.ps1 b/games/nwn2-ee-gog/Prepare-Assets.ps1
+index 3ea405a..76058c9 100644
+--- a/games/nwn2-ee-gog/Prepare-Assets.ps1
++++ b/games/nwn2-ee-gog/Prepare-Assets.ps1
+@@ -3,9 +3,11 @@ param(
+     [string]$AssetDirectory = $PSScriptRoot,
+     [string]$CacheDirectory = '',
+     [string]$SevenZip = '',
+-    [switch]$VerifyOnly
++    [switch]$VerifyOnly,
++    [switch]$FromNucleus
+ )
+ $ErrorActionPreference = 'Stop'
++$ProgressPreference = 'SilentlyContinue'
+ $manifest = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'dependencies.json') -Raw | ConvertFrom-Json
+ function Test-AssetHash([string]$Path, [string]$Expected) {
+     return (Test-Path -LiteralPath $Path -PathType Leaf) -and ((Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash -eq $Expected)
+@@ -17,7 +19,10 @@ if ($VerifyOnly) {
+     Write-Output 'All four NWN2 assets match the pinned manifest.'
+     return
+ }
+-if (Get-Process NucleusCoop,nwn2 -ErrorAction SilentlyContinue) { throw 'End the NWN2 session and close Nucleus normally before preparing assets.' }
++$missing = @($manifest.assets | Where-Object { !(Test-AssetHash (Join-Path $AssetDirectory $_.file) $_.sha256) })
++if (!$missing.Count) { Write-Output 'All four NWN2 assets are ready; no downloads needed.'; return }
++if (Get-Process nwn2 -ErrorAction SilentlyContinue) { throw 'End the NWN2 session normally before repairing missing or incorrect assets.' }
++if (!$FromNucleus -and (Get-Process NucleusCoop -ErrorAction SilentlyContinue)) { throw 'Close Nucleus normally before manual setup, or let the handler prepare assets at Play.' }
+ New-Item -ItemType Directory -Force -Path $AssetDirectory | Out-Null
+ $temporary = Join-Path ([IO.Path]::GetTempPath()) ('coop-assets-' + [guid]::NewGuid().ToString('N'))
+ New-Item -ItemType Directory -Path $temporary | Out-Null
+@@ -41,12 +46,18 @@ try {
+             New-Item -ItemType Directory -Path $downloadFolder | Out-Null
+             $archive = Join-Path $downloadFolder ([IO.Path]::GetFileName(([uri]$asset.download).AbsolutePath))
+             [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+-            Invoke-WebRequest -UseBasicParsing -Uri $asset.download -OutFile $archive
++            Invoke-WebRequest -UseBasicParsing -Uri $asset.download -OutFile $archive -TimeoutSec 180
+             if ($asset.archive_sha256 -and !(Test-AssetHash $archive $asset.archive_sha256)) { throw "Archive hash mismatch: $archive" }
+             $expanded = Join-Path $downloadFolder 'expanded'
+             if ([IO.Path]::GetExtension($archive) -eq '.zip') {
+                 Expand-Archive -LiteralPath $archive -DestinationPath $expanded
+             } else {
++                $tar = Join-Path $env:SystemRoot 'System32\tar.exe'
++                if (!$SevenZip -and (Test-Path -LiteralPath $tar)) {
++                    New-Item -ItemType Directory -Path $expanded | Out-Null
++                    & $tar -xf $archive -C $expanded
++                    if ($LASTEXITCODE -ne 0) { throw 'Windows tar extraction failed; update Windows or retry manual setup with -SevenZip.' }
++                } else {
+                 if (!$SevenZip) {
+                     $tool = Get-Command 7z.exe,7zz.exe -ErrorAction SilentlyContinue | Select-Object -First 1
+                     if ($tool) { $SevenZip = $tool.Source }
+@@ -55,6 +66,7 @@ try {
+                 if (!$SevenZip) { throw 'Install 7-Zip or pass -SevenZip with its executable path, then retry.' }
+                 & $SevenZip x $archive ('-o' + $expanded) -y | Out-Null
+                 if ($LASTEXITCODE -ne 0) { throw '7-Zip extraction failed.' }
++                }
+             }
+             $matches = @(Get-ChildItem -LiteralPath $expanded -Recurse -File -Filter $asset.file | Where-Object { Test-AssetHash $_.FullName $asset.sha256 })
+             if (!$matches.Count) { throw "The upstream archive has no matching $($asset.file)." }
+@@ -75,4 +87,4 @@ try {
+ } finally {
+     Remove-Item -LiteralPath $temporary -Recurse -Force
+ }
+-Write-Output 'NWN2 assets ready. Open Nucleus and use the left/right two-gamepad layout.'
++Write-Output 'NWN2 assets ready. Nucleus can continue launching the two players.'
+diff --git a/games/nwn2-ee-gog/handler.js b/games/nwn2-ee-gog/handler.js
+index b439b51..ad4eba0 100644
+--- a/games/nwn2-ee-gog/handler.js
++++ b/games/nwn2-ee-gog/handler.js
+@@ -2,7 +2,7 @@ Game.ExecutableName = "nwn2.exe";
+ Game.ExecutableContext = ["Galaxy64.dll", "nwn2server64.exe"];
+ Game.GUID = "NWN2EEGOG";
+ Game.GameName = "Neverwinter Nights 2 Enhanced Edition (GOG, 2 gamepads)";
+-Game.Description = "GOG 521755.27. Before first Play, run Prepare-Assets.ps1 from this handler's asset folder; see README.md there. Two gamepads, left/right split; hosting and joining confirmed by human testing. Made with AI assistance (OpenAI Codex). Unofficial community handler. Source and updates: https://github.com/alex-nax/coop/tree/main/games/nwn2-ee-gog";
++Game.Description = "GOG 521755.27. First Play automatically prepares dependencies (internet needed once); see README.md in the handler folder. Two gamepads, left/right split; hosting and joining confirmed by human testing. Made with AI assistance (OpenAI Codex). Unofficial community handler. Source and updates: https://github.com/alex-nax/coop/tree/main/games/nwn2-ee-gog";
+ Game.SteamID = "2738630";
+ Game.UseGoldberg = true;
+ Game.GoldbergNoWarning = true;
+@@ -34,6 +34,31 @@ Game.DocumentsSavePath = "Neverwinter Nights 2";
+ Game.DocumentsSavePathNoCopy = true;
+
+ Game.Play = function () {
++    if (Context.PlayerID === 0) {
++        var quotePS = function (value) { return "'" + value.replace(/'/g, "''") + "'"; };
++        var setupLog = Context.ScriptFolder + "\\setup.log";
++        var command = "$ErrorActionPreference='Stop'; try { & " +
++            quotePS(Context.ScriptFolder + "\\Prepare-Assets.ps1") +
++            " -FromNucleus -NucleusDirectory " + quotePS(Context.NucleusFolder) +
++            " *> " + quotePS(setupLog) + "; exit 0 } catch { ($_ | Out-String) | " +
++            "Out-File -LiteralPath " + quotePS(setupLog) + " -Append; exit 1 }";
++        var setup = new System.Diagnostics.Process();
++        setup.StartInfo.FileName = System.Environment.GetEnvironmentVariable("SystemRoot") +
++            "\\System32\\WindowsPowerShell\\v1.0\\powershell.exe";
++        setup.StartInfo.Arguments = "-NoProfile -NonInteractive -ExecutionPolicy Bypass -EncodedCommand " +
++            System.Convert.ToBase64String(System.Text.Encoding.Unicode.GetBytes(command));
++        setup.StartInfo.UseShellExecute = false;
++        setup.StartInfo.CreateNoWindow = true;
++        try {
++            setup.Start();
++            setup.WaitForExit();
++            if (setup.ExitCode !== 0) {
++                throw new Error("NWN2 dependency setup failed. Check " + setupLog + " and retry Play.");
++            }
++        } finally {
++            setup.Dispose();
++        }
++    }
+     var playerHome = System.Environment.GetEnvironmentVariable("USERPROFILE") +
+         "\\nwn2-coop\\players\\Player" + (Context.PlayerID + 1);
+     System.IO.Directory.CreateDirectory(playerHome);
+diff --git a/scripts/package.py b/scripts/package.py
+index 623cc47..568fa04 100644
+--- a/scripts/package.py
++++ b/scripts/package.py
+@@ -1,5 +1,6 @@
+ #!/usr/bin/env python3
+ """Build allowlisted Hub archives; never walk private storage into a release."""
++import argparse
+ import hashlib
+ import json
+ from pathlib import Path
+@@ -36,8 +37,8 @@ def make_package(game):
+         '# Handler installation\n\nMade with AI assistance using OpenAI Codex, with human testing.\n\n'
+         f'[Source code and updates on GitHub]({SOURCE_REPOSITORY})\n\n'
+         f'Read [the game guide](games/{game["slug"]}/README.md) for installation, play and limitations.\n\n'
+-        + ('Before the first Play, close Nucleus and run Prepare-Assets.ps1 in this folder. '
+-           'It retrieves the pinned upstream dependencies and verifies their hashes.\n' if game['native_adapter'] else '')
++        + ('Press Play in Nucleus: the handler automatically runs Prepare-Assets.ps1 before the first instance. '
++           'Internet is needed once to retrieve pinned upstream dependencies; later launches verify and reuse them.\n' if game['native_adapter'] else '')
+     ).encode()
+     if game['native_adapter']:
+         dependencies = json.loads((folder / 'dependencies.json').read_text())
+@@ -82,6 +83,13 @@ def make_package(game):
+ if __name__ == '__main__':
+     (ROOT / 'dist').mkdir(exist_ok=True)
+     catalog = json.loads((ROOT / 'games/index.json').read_text())['games']
+-    outputs = [make_package(game) for game in catalog]
++    parser = argparse.ArgumentParser()
++    parser.add_argument('--game', choices=[game['slug'] for game in catalog])
++    args = parser.parse_args()
++    for game in catalog:
++        if not args.game or game['slug'] == args.game:
++            make_package(game)
++    outputs = [ROOT / 'dist' / f'{game["slug"]}-{game["version"]}.nc' for game in catalog]
++    outputs = [path for path in outputs if path.exists()]
+     (ROOT / 'dist/SHA256SUMS').write_text(''.join(f'{digest(p.read_bytes())}  {p.name}\n' for p in outputs))
+     (ROOT / 'dist/SUBMISSION.md').write_text((ROOT / 'docs/hub-submission.md').read_text())

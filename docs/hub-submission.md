@@ -26,7 +26,7 @@ On the initial development machine the builder uses the preserved tested adapter
 5. After a first release exists, select **I want to publicly share my handler** and save. The inspected Hub form requires an administrator to authorize public availability; it can show **Pending validation** before that occurs. Do not claim publication before checking the resulting state.
 6. Record actual Hub URLs and review status in `release.json`, the README index and feature tracker. Address moderator feedback before treating the packages as accepted public releases.
 
-The owner has now authorized SS2 publication at [the created Hub entry](https://hub.splitscreen.me/handler/FFBhS68GK5T7u2CEP). Prepare and submit SS2 first; wait for the owner's review before proceeding with NWN2 EE. Every Hub description, release note and package must retain the GitHub source link and AI disclosure. Chrome now connects, and the SS2 listing description/title/input metadata have been saved. Its first release upload is pending the extension's Allow access to file URLs setting.
+The owner completed SS2 upload and review. [Its Hub entry](https://hub.splitscreen.me/handler/FFBhS68GK5T7u2CEP) has version 1 and public sharing requested, with administrator validation pending. The [NWN2 entry](https://hub.splitscreen.me/handler/TEWAqPYPA5KksWHYN) has its description saved but no release. The owner will upload NWN2 later, after automatic dependency setup is completed. See [the handoff](https://github.com/alex-nax/coop/blob/main/HANDOFF.md) before resuming; the existing 0.1.0 package still requires manual setup. Every Hub description, release note and package must retain the GitHub source link and AI disclosure.
 
 ## Chrome upload setup
 

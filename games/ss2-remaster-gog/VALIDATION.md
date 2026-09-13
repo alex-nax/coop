@@ -11,7 +11,7 @@
 | Separate player storage | Native `-userpath` uses stable Player1/Player2 folders |
 | Long campaign / save-reload | Not separately verified |
 | Other builds/platforms/layouts | Not separately verified |
-| Hub review | Not submitted or officially verified |
+| Hub review | Hub version 1 uploaded; public sharing requested, pending validation |
 
 The last installed handler before documentation-only release changes had SHA-256 `0df7eab6e90293732ab764d76e43d67f7da65ea4740fe04114139534ea08cc2a`. The package manifest records the release handler's hash. The behavioral code is preserved; no game was relaunched for repository consolidation.
 

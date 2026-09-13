@@ -2,8 +2,13 @@
   "version": "0.1.0",
   "nucleus_tested": "2.4.2",
   "date": "2026-09-13",
-  "status": "prepared; publication waits for owner review of SS2",
+  "status": "Hub listing saved; owner deferred upload pending automatic setup development",
   "ai_assisted": true,
   "source_repository": "https://github.com/alex-nax/coop",
-  "source_directory": "https://github.com/alex-nax/coop/tree/main/games/nwn2-ee-gog"
+  "source_directory": "https://github.com/alex-nax/coop/tree/main/games/nwn2-ee-gog",
+  "hub_url": "https://hub.splitscreen.me/handler/TEWAqPYPA5KksWHYN",
+  "hub_version": 0,
+  "uploaded": false,
+  "listing_saved": true,
+  "automatic_setup_status": "unfinished draft in docs/drafts/nwn2-automatic-setup.patch; not deployed or packaged"
 }

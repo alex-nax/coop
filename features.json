@@ -269,6 +269,23 @@
         17,
         18
       ]
+    },
+    {
+      "id": 25,
+      "category": "core",
+      "priority": "high",
+      "description": "NWN2 automatic dependency setup before the first Nucleus instance",
+      "acceptance_criteria": [
+        "Fresh import prepares pinned dependencies on Play without a manual PowerShell step",
+        "Cached repeat launch, setup failure, path quoting and actual Nucleus Jint execution are validated on Windows",
+        "Updated package and user documentation retain GitHub links and AI disclosure"
+      ],
+      "passes": false,
+      "dependencies": [
+        13,
+        16,
+        17
+      ]
     }
   ]
 }

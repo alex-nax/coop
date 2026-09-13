@@ -11,7 +11,8 @@
       "layout": "top/bottom",
       "players": 2,
       "validation": "Human-confirmed launch, independent controllers and LAN connection",
-      "native_adapter": false
+      "native_adapter": false,
+      "hub_url": "https://hub.splitscreen.me/handler/FFBhS68GK5T7u2CEP"
     },
     {
       "slug": "nwn2-ee-gog",
@@ -23,7 +24,8 @@
       "layout": "left/right",
       "players": 2,
       "validation": "Human-confirmed launch, independent controllers, hosting, discovery and joining",
-      "native_adapter": true
+      "native_adapter": true,
+      "hub_url": "https://hub.splitscreen.me/handler/TEWAqPYPA5KksWHYN"
     }
   ]
 }

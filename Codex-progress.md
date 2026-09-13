@@ -1,5 +1,14 @@
 # Progress log
 
+## Session 4 — 2026-09-13
+**Agent**: OpenAI Codex, publication follow-up and paused automatic setup
+**Summary**: Owner finished SS2 upload and review. Chrome confirmed Hub version 1, public sharing requested and pending validation. Saved the owner-created NWN2 listing with GitHub/AI disclosures; no package uploaded. Owner deferred upload and requested automatic dependency setup, then asked to pause and push a handoff.
+**Work preserved**: [HANDOFF.md](HANDOFF.md) records the full resume plan. Unfinished automation is saved as `docs/drafts/nwn2-automatic-setup.patch`; active source stays at the tested 0.1.0 implementation. No new deployment or package build occurred.
+**Known issues**: Draft needs tests, actual Nucleus Jint/PowerShell verification, fresh dependency downloads, sidecar updates, revised release docs and a 0.2.0 package. Hub feature #23 remains incomplete. Chrome automatic file upload still reports Not allowed; owner will upload later.
+**Next suggested task**: Read HANDOFF.md, apply/review the draft and validate automatic setup in an isolated Windows folder before any runtime deployment. Preserve SS2 upload and saves.
+
+---
+
 ## Session 3 — 2026-09-13
 **Agent**: OpenAI Codex, Chrome-connected SS2 submission
 **Summary**: The updated Chrome integration connected successfully. Opened the owner-created SS2 entry in a new Chrome tab; saved its title, complete description with GitHub source link and AI disclosure, two-player controller support and no keyboard/mouse support. The rendered listing confirms persistence.
