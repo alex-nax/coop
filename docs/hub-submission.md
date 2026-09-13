@@ -26,7 +26,11 @@ On the initial development machine the builder uses the preserved tested adapter
 5. After a first release exists, select **I want to publicly share my handler** and save. The inspected Hub form requires an administrator to authorize public availability; it can show **Pending validation** before that occurs. Do not claim publication before checking the resulting state.
 6. Record actual Hub URLs and review status in `release.json`, the README index and feature tracker. Address moderator feedback before treating the packages as accepted public releases.
 
-The owner has now authorized SS2 publication at [the created Hub entry](https://hub.splitscreen.me/handler/FFBhS68GK5T7u2CEP). Prepare and submit SS2 first; wait for the owner's review before proceeding with NWN2 EE. Every Hub description, release note and package must retain the GitHub source link and AI disclosure. The browser backend was unavailable during preparation, so no authenticated Hub change has been made.
+The owner has now authorized SS2 publication at [the created Hub entry](https://hub.splitscreen.me/handler/FFBhS68GK5T7u2CEP). Prepare and submit SS2 first; wait for the owner's review before proceeding with NWN2 EE. Every Hub description, release note and package must retain the GitHub source link and AI disclosure. Chrome now connects, and the SS2 listing description/title/input metadata have been saved. Its first release upload is pending the extension's Allow access to file URLs setting.
+
+## Chrome upload setup
+
+If choosing a local archive fails with a file-upload permission error, open `chrome://extensions`, open Details for the ChatGPT browser extension, and enable **Allow access to file URLs**. The supported file-chooser flow needs that permission. Keep the prepared Hub tab open and retry file selection after the user enables it. Do not submit repeatedly or assume a selected filename means an uploaded release.
 
 ## Disclosure and release scope
 

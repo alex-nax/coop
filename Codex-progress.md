@@ -1,5 +1,14 @@
 # Progress log
 
+## Session 3 — 2026-09-13
+**Agent**: OpenAI Codex, Chrome-connected SS2 submission
+**Summary**: The updated Chrome integration connected successfully. Opened the owner-created SS2 entry in a new Chrome tab; saved its title, complete description with GitHub source link and AI disclosure, two-player controller support and no keyboard/mouse support. The rendered listing confirms persistence.
+**Features completed**: SS2 listing metadata saved; #23 remains incomplete until releases and public review are complete.
+**Known issues**: First-release file selection failed because Chrome denies file upload until the ChatGPT extension has Allow access to file URLs enabled. The release note is filled and the tab is retained for handoff. No package has been uploaded; version remains 0 and the public-sharing checkbox is disabled. User was given the exact supported extension setting.
+**Next suggested task**: After file access is enabled, resume the existing Chrome browser/tab, attach dist/ss2-remaster-gog-0.1.0.nc, Send once, verify version 1, request public availability and record the actual review status. Wait for the owner's SS2 review before NWN2 publication.
+
+---
+
 ## Session 2 — 2026-09-13
 **Agent**: OpenAI Codex, Hub publication preparation
 **Summary**: Identified the owner-created SS2 Hub entry, added GitHub source links alongside AI disclosure in both handler descriptions, public game/release documentation and package manifests. The owner authorized SS2 publication and asked to review it before NWN2 EE proceeds.

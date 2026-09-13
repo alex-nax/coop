@@ -14,7 +14,7 @@ Source: [alex-nax/coop — SS2](https://github.com/alex-nax/coop/tree/main/games
 | Mouse/keyboard support | None |
 | Description | Paste the descriptive paragraphs from [hub-description.md](hub-description.md), including GitHub links and AI disclosure |
 
-The existing entry has its placeholder description and advertises mouse/keyboard support; the handler supports two gamepads. Correct both before submitting.
+The listing metadata above has been saved and verified on the rendered Hub page. The first-release upload remains pending; Chrome requires Allow access to file URLs for the ChatGPT browser extension before its file chooser can accept the prepared archive.
 
 ## First release
 
